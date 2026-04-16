@@ -22,15 +22,15 @@ function About() {
       <section className="section">
         <SectionHeader
           eyebrow="About us"
-          title="External client delivery, built like an internal product team"
-          subtitle="Gausa Technology partners with fast-moving businesses to design and build digital products with confidence."
+          title="Your External Tech Team, Without the Overhead"
+          subtitle="Custom websites and mobile apps built with strategy, design, and engineering—end to end."
         />
         <div className="glass-card">
           <p>
-            We specialize in external client work for startups, agencies, and mid-size
-            businesses that need a reliable team to execute product vision. Our multidisciplinary
-            pods combine strategy, design, development, and QA so you can launch faster and scale
-            without extra overhead.
+            We help startups, agencies, and growing businesses bring their ideas to life with custom-built digital solutions. From websites to mobile applications, we act as your dedicated product team — handling everything from strategy and design to development and deployment.
+          </p>
+          <p>
+            Our approach is simple: understand your vision, build with precision, and deliver results that drive real business growth.
           </p>
         </div>
       </section>

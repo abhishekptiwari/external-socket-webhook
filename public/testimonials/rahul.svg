@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-label="Rahul avatar">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0ea5e9" stop-opacity="0.95" />
+      <stop offset="1" stop-color="#635bff" stop-opacity="0.95" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="40" fill="url(#bg)" />
+  <circle cx="80" cy="78" r="42" fill="rgba(255,255,255,0.18)" />
+  <text x="80" y="92" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial" font-size="44" font-weight="800" fill="white">RM</text>
+</svg>

@@ -90,10 +90,10 @@ body {
 }
 
 .logo-glow {
-  width: 68px;
-  height: 68px;
+  width: 86px;
+  height: 86px;
   border-radius: 20px;
-  padding: 10px;
+  padding: 12px;
   background: linear-gradient(145deg, rgba(99, 91, 255, 0.2), rgba(255, 255, 255, 0.9));
   box-shadow: 0 12px 30px rgba(99, 91, 255, 0.18);
   display: grid;
@@ -435,6 +435,30 @@ body {
   margin-top: 2rem;
 }
 
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.checklist li {
+  position: relative;
+  padding-left: 1.8rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.checklist li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  color: var(--accent);
+}
+
 .feature-item h4 {
   margin-bottom: 0.4rem;
 }
@@ -492,14 +516,34 @@ body {
   font-size: 0.75rem;
 }
 
+.muted {
+  color: var(--ink-soft);
+}
+
+.testimonial-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.testimonial-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  object-fit: cover;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.55);
+  flex: 0 0 auto;
+}
+
 .quote {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--ink);
+  margin-top: 1rem;
 }
 
 .quote-meta {
-  margin-top: 1.4rem;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -583,6 +627,19 @@ body {
 
 .contact-highlight {
   margin-top: 1.5rem;
+}
+
+.cta-card {
+  display: grid;
+  gap: 1rem;
+  padding: 2.4rem;
+}
+
+.cta-card p {
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 70ch;
 }
 
 .footer {

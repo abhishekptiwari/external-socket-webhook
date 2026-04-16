@@ -3,22 +3,32 @@ import SectionHeader from '../components/SectionHeader';
 
 const testimonials = [
   {
-    name: 'Ritika Sharma',
-    role: 'Founder, FinEdge',
+    name: 'Ananya Patel',
+    role: 'Founder, Small Business',
     quote:
-      'Gausa Technology felt like an internal product team. They delivered our MVP in record time and kept every milestone transparent.',
+      'Gausa Technology was incredibly responsive and clear throughout the project. Our new website looks premium and loads fast.',
+    image: '/testimonials/ananya.svg',
   },
   {
-    name: 'Daniel Wu',
-    role: 'Head of Growth, NovaCare',
+    name: 'Rahul Mehta',
+    role: 'Operations Lead, Agency',
     quote:
-      'We saw immediate improvements in engagement after the redesign. The team is fast, strategic, and extremely reliable.',
+      'They understood our requirements quickly, suggested better solutions, and delivered on time. Communication was smooth from start to finish.',
+    image: '/testimonials/rahul.svg',
   },
   {
-    name: 'Amit Verma',
-    role: 'COO, LearnSphere',
+    name: 'Sofia Khan',
+    role: 'Product Manager',
     quote:
-      'From UX to deployment, everything was polished. They understand external client delivery and communication.',
+      'The UI/UX improvements made a big difference for our users. The team handled everything professionally and with great attention to detail.',
+    image: '/testimonials/sofia.svg',
+  },
+  {
+    name: 'James Carter',
+    role: 'Founder, Startup',
+    quote:
+      'From planning to launch, the process was organized and transparent. We finally have a scalable foundation we can build on.',
+    image: '/testimonials/james.svg',
   },
 ];
 
@@ -34,11 +44,19 @@ function Testimonials() {
         <div className="grid grid--3">
           {testimonials.map((testimonial) => (
             <div key={testimonial.name} className="glass-card">
-              <p className="quote">“{testimonial.quote}”</p>
-              <div className="quote-meta">
-                <strong>{testimonial.name}</strong>
-                <span>{testimonial.role}</span>
+              <div className="testimonial-meta">
+                <img
+                  className="testimonial-avatar"
+                  src={testimonial.image}
+                  alt={`${testimonial.name} headshot`}
+                  loading="lazy"
+                />
+                <div className="quote-meta">
+                  <strong>{testimonial.name}</strong>
+                  <span>{testimonial.role}</span>
+                </div>
               </div>
+              <p className="quote">“{testimonial.quote}”</p>
             </div>
           ))}
         </div>

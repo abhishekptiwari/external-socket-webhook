@@ -17,8 +17,7 @@ function Footer() {
         <div className="footer__brand">
           <h3>Gausa Technology</h3>
           <p>
-            A dedicated external client team delivering product strategy, design,
-            and engineering for fast-moving businesses.
+            Building high-quality websites and apps for businesses worldwide.
           </p>
           <div className="footer__cta">
             <NavLink to="/contact" className="button button--ghost">
@@ -33,7 +32,6 @@ function Footer() {
             <NavLink to="/about">About</NavLink>
             <NavLink to="/services">Services</NavLink>
             <NavLink to="/projects">Projects</NavLink>
-            <NavLink to="/pricing">Pricing</NavLink>
             <NavLink to="/faq">FAQ</NavLink>
           </div>
           <div>
@@ -48,7 +46,7 @@ function Footer() {
       </div>
       <div className="footer__bottom">
         <span>© {new Date().getFullYear()} Gausa Technology. All rights reserved.</span>
-        <span>Built for external client partners worldwide.</span>
+        <span>Building high-quality websites and apps for businesses worldwide.</span>
       </div>
     </footer>
   );

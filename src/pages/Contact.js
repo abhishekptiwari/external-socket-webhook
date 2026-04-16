@@ -7,7 +7,7 @@ function Contact() {
       <section className="section section--contact">
         <SectionHeader
           eyebrow="Contact"
-          title="Let’s build your next client project"
+          title="Let’s build your next project"
           subtitle="Tell us about your scope, timeline, and delivery goals."
         />
         <div className="contact-grid">
@@ -32,19 +32,19 @@ function Contact() {
               </button>
             </form>
           </div>
-          <div className="glass-card">
-            <h3>Quick details</h3>
+          <div className="glass-card" id="call">
+            <h3>Prefer to talk?</h3>
+            <p className="muted">
+              Call us directly and we’ll help you scope the right solution.
+            </p>
             <ul className="contact-details">
-              <li>Average kickoff: 7-10 days</li>
-              <li>Engagements: MVPs, redesigns, ongoing delivery</li>
-              <li>Timezone coverage: APAC + EMEA + US</li>
-              <li>Primary channels: Slack, Meet, Email</li>
+              <li>
+                <strong>🇬🇧</strong> +44 XXXX XXX XXX
+              </li>
+              <li>
+                <strong>🇮🇳</strong> +91 XXXXX XXXXX
+              </li>
             </ul>
-            <div className="contact-highlight">
-              <h4>Prefer a call?</h4>
-              <p>Book a discovery session and meet your dedicated delivery pod.</p>
-              <button type="button" className="button button--ghost">Schedule a call</button>
-            </div>
           </div>
         </div>
       </section>

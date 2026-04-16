@@ -3,28 +3,24 @@ import SectionHeader from '../components/SectionHeader';
 
 const services = [
   {
-    title: 'Product discovery',
-    description: 'Workshops, market analysis, and roadmap definition to align stakeholders.',
+    title: 'Custom Website Development',
+    description: 'Fast, responsive, and SEO-friendly websites designed to convert visitors into customers.',
   },
   {
-    title: 'UI/UX design',
-    description: 'Design systems, prototyping, and conversion-focused UX journeys.',
+    title: 'Mobile App Development',
+    description: 'Powerful iOS and Android apps with seamless user experiences and scalable architecture.',
   },
   {
-    title: 'Web development',
-    description: 'React, Next.js, and full-stack engineering with API integrations.',
+    title: 'UI/UX Design',
+    description: 'User-focused design that enhances engagement, usability, and brand identity.',
   },
   {
-    title: 'Mobile delivery',
-    description: 'Cross-platform builds with Flutter and React Native.',
+    title: 'Web Applications',
+    description: 'Custom dashboards, SaaS platforms, and business tools tailored to your operations.',
   },
   {
-    title: 'DevOps & QA',
-    description: 'Automated testing, CI/CD pipelines, and monitoring setup.',
-  },
-  {
-    title: 'Growth support',
-    description: 'Performance optimization, A/B testing, and analytics dashboards.',
+    title: 'Maintenance & Support',
+    description: 'Ongoing updates, performance optimization, and technical support to keep your product running smoothly.',
   },
 ];
 
@@ -34,8 +30,8 @@ function Services() {
       <section className="section">
         <SectionHeader
           eyebrow="Services"
-          title="Everything you need to deliver client success"
-          subtitle="Flexible engagement models for one-off builds or long-term product partnerships."
+          title="What We Do"
+          subtitle="Custom-built digital solutions designed for speed, quality, and long-term growth."
         />
         <div className="grid grid--3">
           {services.map((service) => (

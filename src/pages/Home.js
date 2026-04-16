@@ -4,23 +4,53 @@ import SectionHeader from '../components/SectionHeader';
 
 const highlights = [
   {
-    title: 'Product Strategy',
-    description: 'Align vision, roadmap, and delivery metrics for external client teams.',
+    title: 'Custom Website Development',
+    description: 'Fast, responsive, and SEO-friendly websites built to convert visitors into customers.',
   },
   {
-    title: 'Design + UX',
-    description: 'Human-first interfaces that feel premium, fast, and measurable.',
+    title: 'Mobile App Development',
+    description: 'Powerful iOS and Android apps with clean UX and scalable architecture.',
   },
   {
-    title: 'Engineering',
-    description: 'Modern web, mobile, and cloud delivery with agile execution.',
+    title: 'Web Applications',
+    description: 'Custom dashboards, SaaS platforms, and internal tools tailored to your operations.',
   },
 ];
 
 const stats = [
   { value: '120+', label: 'Client launches' },
   { value: '8 yrs', label: 'Delivery experience' },
-  { value: '24/7', label: 'Global support' },
+];
+
+const processSteps = [
+  {
+    title: 'Discover',
+    description: 'We understand your business, goals, and target users.',
+  },
+  {
+    title: 'Design',
+    description: 'We create intuitive and visually appealing user experiences.',
+  },
+  {
+    title: 'Develop',
+    description: 'Our team builds scalable, high-performance solutions.',
+  },
+  {
+    title: 'Launch',
+    description: 'We deploy your product with full testing and quality assurance.',
+  },
+  {
+    title: 'Support',
+    description: 'We stay with you post-launch to ensure long-term success.',
+  },
+];
+
+const whyChooseUs = [
+  'Fully customized solutions',
+  'Fast turnaround and clear communication',
+  'Scalable and future-ready technology',
+  'Dedicated team for every project',
+  'Affordable for startups and growing businesses',
 ];
 
 function Home() {
@@ -28,19 +58,14 @@ function Home() {
     <div className="page">
       <section className="hero">
         <div className="hero__content">
-          <span className="pill">External Client Delivery Partner</span>
-          <h1>Build bold digital products with a premium delivery pod.</h1>
-          <p>
-            We are an external client project team focused on strategy, design, and
-            engineering. From MVP to scale, we build modern products that feel
-            premium and perform reliably.
-          </p>
+          <h1>Build Digital Products That Scale With Your Business</h1>
+          <p>We design and develop custom websites and mobile apps tailored to your business goals — fast, reliable, and built to grow.</p>
           <div className="hero__actions">
             <NavLink to="/contact" className="button button--primary">
               Start a Project
             </NavLink>
-            <NavLink to="/projects" className="button button--ghost">
-              View Projects
+            <NavLink to="/contact#call" className="button button--ghost">
+              Book a Free Consultation
             </NavLink>
           </div>
           <div className="hero__stats">
@@ -78,8 +103,8 @@ function Home() {
       <section className="section">
         <SectionHeader
           eyebrow="What we do"
-          title="A full-service partner for external client teams"
-          subtitle="We combine strategic clarity, creative polish, and engineering excellence to deliver measurable impact."
+          title="A full-service partner for custom builds"
+          subtitle="From websites to apps, we deliver tailored digital solutions that drive real business outcomes."
         />
         <div className="grid grid--3">
           {highlights.map((item) => (
@@ -91,39 +116,57 @@ function Home() {
         </div>
       </section>
 
+      <section className="section">
+        <SectionHeader
+          eyebrow="Process"
+          title="How We Deliver Results"
+          subtitle="A simple, proven workflow to take your idea from concept to launch — and beyond."
+        />
+        <div className="grid grid--3">
+          {processSteps.map((step) => (
+            <div key={step.title} className="glass-card">
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="section section--feature">
         <div className="feature-block">
           <SectionHeader
-            eyebrow="Why us"
-            title="A premium experience with transparent delivery"
-            subtitle="Dedicated pods, weekly delivery checkpoints, and a high-touch client experience."
+            eyebrow="Why choose us"
+            title="Why Clients Choose Us"
+            subtitle="Custom builds, clear communication, and delivery you can rely on."
           />
-          <div className="feature-list">
-            <div className="feature-item">
-              <h4>Client-first pods</h4>
-              <p>Dedicated designers and engineers aligned to your roadmap.</p>
-            </div>
-            <div className="feature-item">
-              <h4>Rapid iterations</h4>
-              <p>2-week sprints, fast feedback loops, and clear deliverables.</p>
-            </div>
-            <div className="feature-item">
-              <h4>Quality assurance</h4>
-              <p>End-to-end testing and launch readiness checks.</p>
-            </div>
-          </div>
+          <ul className="checklist">
+            {whyChooseUs.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </div>
         <div className="feature-highlight">
           <div className="glass-card">
             <h3>Client success snapshot</h3>
             <p>
-              Delivered a 4x engagement lift for a fintech onboarding flow by
-              redesigning the UX and automating integrations.
+              Helped a growing business launch a conversion-focused website and a scalable admin dashboard that reduced manual work and improved lead response times.
             </p>
             <NavLink to="/projects" className="button button--ghost">
               See Case Studies
             </NavLink>
           </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="glass-card cta-card">
+          <h2>Ready to Build Your Project?</h2>
+          <p>
+            Let’s turn your idea into a powerful digital product. Whether you need a website, mobile app, or custom system — we’re here to help.
+          </p>
+          <NavLink to="/contact" className="button button--primary">
+            Start Your Project
+          </NavLink>
         </div>
       </section>
     </div>
