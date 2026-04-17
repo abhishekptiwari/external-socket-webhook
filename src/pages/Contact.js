@@ -45,6 +45,7 @@ function Contact() {
         if (data && data.code === 'CONFIG_MISSING') {
           throw new Error('Email is not configured on the server. Set SMTP env vars and restart the dev API.');
         }
+        const requestIdSuffix = data && data.requestId ? ` (Request ID: ${data.requestId})` : '';
         const proxyHint =
           raw && raw.toLowerCase().includes('proxy error')
             ? ' (dev proxy could not reach the API server)'
@@ -54,7 +55,7 @@ function Contact() {
           : raw
             ? `${raw.split('\n')[0].slice(0, 180)} (HTTP ${response.status})${proxyHint}`
             : `Request failed (HTTP ${response.status})${proxyHint}`;
-        throw new Error(message);
+        throw new Error(`${message}${requestIdSuffix}`);
       }
 
       setStatus({ state: 'success', message: 'Thanks! We’ll respond within 24 hours.' });

@@ -17,6 +17,10 @@ function isProduction() {
   return String(process.env.NODE_ENV || '').toLowerCase() === 'production';
 }
 
+function isDebugEnabled() {
+  return String(process.env.DEBUG_CONTACT_API || '').toLowerCase() === 'true';
+}
+
 async function sendContactEmail({ requestId, fullName, companyEmail, projectScope }) {
   const smtpHost = readEnv('SMTP_HOST', { required: true });
   const smtpPort = Number(readEnv('SMTP_PORT', { required: true }));
@@ -24,10 +28,17 @@ async function sendContactEmail({ requestId, fullName, companyEmail, projectScop
   const smtpPass = readEnv('SMTP_PASS', { required: true });
   const contactTo = readEnv('CONTACT_TO', { fallback: smtpUser });
 
+  const secureFromEnv = process.env.SMTP_SECURE;
+  const secure =
+    typeof secureFromEnv === 'string' && secureFromEnv.trim() !== ''
+      ? secureFromEnv.toLowerCase() === 'true'
+      : smtpPort === 465;
+
   const transporter = nodemailer.createTransport({
     host: smtpHost,
     port: smtpPort,
-    secure: smtpPort === 465,
+    secure,
+    requireTLS: smtpPort === 587,
     auth: {
       user: smtpUser,
       pass: smtpPass,
@@ -62,11 +73,12 @@ async function handleContact({ method, headers, body }) {
     `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 
   const startedAt = Date.now();
+  const debug = isDebugEnabled();
 
   if ((method || 'GET') !== 'POST') {
     return {
       status: 405,
-      json: { ok: false, error: 'Method not allowed' },
+      json: { ok: false, requestId, error: 'Method not allowed' },
       headers: { Allow: 'POST' },
     };
   }
@@ -87,7 +99,7 @@ async function handleContact({ method, headers, body }) {
     });
     return {
       status: 400,
-      json: { ok: false, error: 'Missing required fields' },
+      json: { ok: false, requestId, error: 'Missing required fields' },
     };
   }
 
@@ -99,11 +111,18 @@ async function handleContact({ method, headers, body }) {
   });
 
   try {
+    const smtpPort = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : null;
+    const secureFromEnv = process.env.SMTP_SECURE;
+    const secure =
+      typeof secureFromEnv === 'string' && secureFromEnv.trim() !== ''
+        ? secureFromEnv.toLowerCase() === 'true'
+        : smtpPort === 465;
+
     console.info('[contact] smtp_config', {
       requestId,
       smtpHost: process.env.SMTP_HOST ? String(process.env.SMTP_HOST) : null,
-      smtpPort: process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : null,
-      secure: Number(process.env.SMTP_PORT) === 465,
+      smtpPort,
+      secure,
       hasUser: Boolean(process.env.SMTP_USER),
       hasPass: Boolean(process.env.SMTP_PASS),
       to: process.env.CONTACT_TO ? String(process.env.CONTACT_TO) : null,
@@ -124,27 +143,32 @@ async function handleContact({ method, headers, body }) {
 
     return {
       status: 200,
-      json: { ok: true },
+      json: { ok: true, requestId },
     };
   } catch (error) {
     const message = error && error.message ? error.message : String(error);
     const isMissingEnv = message.startsWith('Missing required env var:');
+    const errorCode = isMissingEnv ? 'CONFIG_MISSING' : 'SMTP_ERROR';
 
     console.error('[contact] error', {
       requestId,
       message,
+      code: error && error.code ? error.code : null,
+      command: error && error.command ? error.command : null,
+      responseCode: error && typeof error.responseCode === 'number' ? error.responseCode : null,
+      response: error && error.response ? String(error.response).slice(0, 400) : null,
       tookMs: Date.now() - startedAt,
     });
 
     return {
       status: 500,
-      json: isProduction()
-        ? { ok: false, error: 'Failed to send message' }
-        : {
-            ok: false,
-            error: isMissingEnv ? 'Server email is not configured' : 'Failed to send message',
-            code: isMissingEnv ? 'CONFIG_MISSING' : 'SMTP_ERROR',
-          },
+      json: {
+        ok: false,
+        requestId,
+        error: isMissingEnv ? 'Server email is not configured' : 'Failed to send message',
+        code: errorCode,
+        ...(isProduction() && !debug ? {} : { debug: { message } }),
+      },
     };
   }
 }
