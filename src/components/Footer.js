@@ -4,9 +4,7 @@ import { NavLink } from 'react-router-dom';
 const socialLinks = [
   { label: 'Instagram', href: 'https://www.instagram.com/gausatechnology' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/gausa-technology' },
-  { label: 'X', href: 'https://x.com/home' },
   { label: 'Fiverr', href: 'https://www.fiverr.com/' },
-  { label: 'Freelancer', href: 'https://www.freelancer.in/' },
   { label: 'Upwork', href: 'https://www.upwork.com/freelance-jobs/' },
 ];
 
@@ -45,7 +43,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer__bottom">
-        <span>© {new Date().getFullYear()} Gausa Technology. All rights reserved.</span>
+        <span>© 2026 Gausa Technology. All rights reserved. Since 2020.</span>
         <span>Building high-quality websites and apps for businesses worldwide.</span>
       </div>
     </footer>

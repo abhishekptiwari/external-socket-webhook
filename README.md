@@ -29,6 +29,21 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## Contact Form Email (Nodemailer)
+
+This site’s contact form posts to a server endpoint at `POST /api/contact` (see `api/contact.js:1`).
+
+**Local env**
+- Copy `.env.example` → `.env.local` and fill in SMTP values.
+- Install deps: `npm install`
+- Start the dev API server in one terminal: `npm run dev:api`
+- Start the React app in another terminal: `npm start`
+- Health check: `http://localhost:4000/api/health`
+
+**Deploy**
+- Set the same env vars in your hosting provider (Vercel/Netlify/etc.).
+- Health check after deploy: `https://YOUR_DOMAIN/api/health`
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**

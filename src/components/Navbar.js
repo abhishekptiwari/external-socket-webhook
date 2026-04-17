@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeMenu, toggleMenu } from '../features/ui/uiSlice';
-import logo from '../assets/logo.jpg';
+import logo from '../assets/gausa-logo.jpg';
 
 const navItems = [
   { label: 'Home', path: '/' },
