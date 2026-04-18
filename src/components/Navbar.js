@@ -52,7 +52,7 @@ export default function Navbar({ onStartProject }) {
   }, [ids]);
 
   return (
-    <div className="fixed inset-x-0 top-0 z-50">
+    <div className="fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-black/25 to-transparent" />
       <Container className="pointer-events-auto">
         <div className="mt-4 flex items-center justify-between rounded-2xl border border-white/10 bg-black/35 px-4 py-3 shadow-[0_20px_60px_-30px_rgba(0,0,0,.9)] backdrop-blur-xl">
@@ -65,8 +65,10 @@ export default function Navbar({ onStartProject }) {
             <div className="grid size-11 place-items-center overflow-hidden rounded-2xl bg-white/90 ring-1 ring-white/10">
               <img src={logo} alt="Gausa Technology logo" className="h-10 w-10 object-contain" />
             </div>
-            <div className="hidden sm:block">
-              <div className="text-sm font-semibold tracking-tight text-white">Gausa Technology</div>
+            <div className="min-w-0">
+              <div className="truncate text-xs font-semibold tracking-tight text-white sm:text-sm">
+                Gausa Technology
+              </div>
               {/* <div className="text-xs text-white/55">Client delivery studio</div> */}
             </div>
           </button>

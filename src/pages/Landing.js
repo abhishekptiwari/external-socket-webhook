@@ -306,7 +306,7 @@ export default function Landing({ initialSectionId }) {
           </Container>
         </section>
 
-        <section id="about" className="scroll-mt-28 py-20 sm:py-24">
+        <section id="about" className="scroll-mt-28 py-14 sm:py-24">
           <Container>
             <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
               <div className="lg:col-span-5">
@@ -401,7 +401,7 @@ export default function Landing({ initialSectionId }) {
           </Container>
         </section>
 
-        <section id="team" className="scroll-mt-28 py-20 sm:py-24">
+        <section id="team" className="scroll-mt-28 py-14 sm:py-24">
           <Container>
             <SectionHeading
               eyebrow="TEAM"
@@ -422,7 +422,7 @@ export default function Landing({ initialSectionId }) {
           </Container>
         </section>
 
-        <section id="services" className="scroll-mt-28 py-20 sm:py-24">
+        <section id="services" className="scroll-mt-28 py-14 sm:py-24">
           <Container>
             <SectionHeading
               eyebrow="What we do"
@@ -460,7 +460,7 @@ export default function Landing({ initialSectionId }) {
           </Container>
         </section>
 
-        <section id="process" className="scroll-mt-28 py-20 sm:py-24">
+        <section id="process" className="scroll-mt-28 py-14 sm:py-24">
           <Container>
             <SectionHeading
               eyebrow="Process"
@@ -489,7 +489,7 @@ export default function Landing({ initialSectionId }) {
           </Container>
         </section>
 
-        <section id="projects" className="scroll-mt-28 py-20 sm:py-24">
+        <section id="projects" className="scroll-mt-28 py-14 sm:py-24">
           <Container>
             <SectionHeading
               eyebrow="PROJECTS"
@@ -517,7 +517,7 @@ export default function Landing({ initialSectionId }) {
           </Container>
         </section>
 
-        <section id="testimonials" className="scroll-mt-28 py-20 sm:py-24">
+        <section id="testimonials" className="scroll-mt-28 py-14 sm:py-24">
           <Container>
             <SectionHeading
               eyebrow="TESTIMONIALS"
@@ -532,7 +532,7 @@ export default function Landing({ initialSectionId }) {
           </Container>
         </section>
 
-        <section id="blog" className="scroll-mt-28 py-20 sm:py-24">
+        <section id="blog" className="scroll-mt-28 py-14 sm:py-24">
           <Container>
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <SectionHeading
@@ -577,7 +577,7 @@ export default function Landing({ initialSectionId }) {
           </Container>
         </section>
 
-        <section id="faq" className="scroll-mt-28 py-20 sm:py-24">
+        <section id="faq" className="scroll-mt-28 py-14 sm:py-24">
           <Container>
             <SectionHeading
               eyebrow="FAQ"
@@ -600,7 +600,7 @@ export default function Landing({ initialSectionId }) {
           </Container>
         </section>
 
-        <section id="contact" className="scroll-mt-28 pb-20 sm:pb-24">
+        <section id="contact" className="scroll-mt-28 pb-14 sm:pb-24">
           <Container>
             <div className="rounded-3xl border border-white/10 bg-white/5 shadow-[0_30px_90px_-60px_rgba(0,0,0,.9)] backdrop-blur">
               <div className="grid gap-8 p-8 lg:grid-cols-12 lg:p-10">
