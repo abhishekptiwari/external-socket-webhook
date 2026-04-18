@@ -191,7 +191,7 @@ body {
   letter-spacing: 0.4em;
   color: var(--accent);
   font-weight: 800;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
 }
 
 .section-header h2 {
@@ -602,6 +602,12 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+  align-items: start;
+}
+
+.contact-grid .glass-card {
+  min-width: 0;
+  overflow: hidden;
 }
 
 .contact-form {
@@ -625,6 +631,15 @@ body {
   color: var(--ink);
   padding: 0.7rem 0.9rem;
   font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  max-width: 100%;
+  min-height: 120px;
+  max-height: 260px;
 }
 
 .contact-details {
@@ -661,21 +676,53 @@ body {
 }
 
 .footer__content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.footer__brand {
+  max-width: 420px;
+}
+
+.footer__brand h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
 }
 
 .footer__brand p {
   color: var(--ink-soft);
   line-height: 1.7;
+  margin: 0;
+}
+
+.footer__cta {
+  margin-top: 1.4rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footer__cta .button {
+  padding: 0.65rem 1.2rem;
+  font-size: 0.78rem;
+  margin-right: 0.4rem;
+}
+
+.footer__cta-button {
+  box-shadow: 0 14px 34px rgba(99, 91, 255, 0.24);
 }
 
 .footer__links {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 4rem;
+  text-align: left;
 }
 
 .footer__title {
@@ -696,18 +743,41 @@ body {
 
 .footer__links a:hover {
   color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .footer__bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-between;
   color: var(--ink-soft);
   font-size: 0.85rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
 }
 
 @media (max-width: 900px) {
+  .footer__content {
+    flex-direction: column;
+    gap: 2.2rem;
+  }
+
+  .footer__links {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 2.5rem;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .navbar__toggle {
     display: grid;
   }

@@ -1,37 +1,21 @@
 import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import Projects from './pages/Projects';
-import Testimonials from './pages/Testimonials';
-import Blog from './pages/Blog';
-import Contact from './pages/Contact';
-import FAQ from './pages/FAQ';
+import Landing from './pages/Landing';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="app">
-        <Navbar />
-        <main className="main">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/testimonials" element={<Testimonials />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/about" element={<Landing initialSectionId="about" />} />
+        <Route path="/services" element={<Landing initialSectionId="services" />} />
+        <Route path="/projects" element={<Landing initialSectionId="projects" />} />
+        <Route path="/testimonials" element={<Landing initialSectionId="testimonials" />} />
+        <Route path="/blog" element={<Landing initialSectionId="blog" />} />
+        <Route path="/faq" element={<Landing initialSectionId="faq" />} />
+        <Route path="/contact" element={<Landing initialSectionId="contact" />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </BrowserRouter>
   );
 }
