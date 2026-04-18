@@ -18,8 +18,8 @@ const highlights = [
 ];
 
 const stats = [
-  { value: '120+', label: 'Client launches' },
-  { value: '8 yrs', label: 'Delivery experience' },
+  { value: '100+', label: 'Client launches' },
+  { value: '6 yrs', label: 'Delivery experience' },
 ];
 
 const processSteps = [

@@ -8,6 +8,7 @@ import { Modal } from '../components/Modal';
 import { Toast } from '../components/Toast';
 import ContactForm from '../components/ContactForm';
 import StartProjectForm from '../components/StartProjectForm';
+import TestimonialCard from '../components/TestimonialCard';
 import { ArrowRight, Calendar, ExternalLink, Rocket, Sparkles } from 'lucide-react';
 
 const card =
@@ -68,21 +69,20 @@ const testimonials = [
     role: 'Founder & MD',
     quote:
       'Gausa Technology was incredibly responsive and clear throughout the project. Our new website looks premium and loads fast.',
-    image: '/testimonials/ananya.svg',
+    image: '/testimonials/gaurang-sarvaiya.jpeg',
   },
   {
     name: 'Abhishek Tiwari',
     role: 'Operations Lead, CTO',
     quote:
       'They understood our requirements quickly, suggested better solutions, and delivered on time. Communication was smooth from start to finish.',
-    image: '/testimonials/rahul.svg',
+    image: '/testimonials/abhishek-tiwari.jpeg',
   },
   {
     name: 'Kirti Singh',
     role: 'Product Manager',
     quote:
       'The UI/UX improvements made a big difference for our users. The team handled everything professionally and with great attention to detail.',
-    image: '/testimonials/sofia.svg',
   },
 ];
 
@@ -179,8 +179,8 @@ export default function Landing({ initialSectionId }) {
 
                 <div className="mt-10 grid gap-4 sm:grid-cols-2">
                   {[
-                    { value: '120+', label: 'Client launches' },
-                    { value: '8 yrs', label: 'Delivery experience' },
+                    { value: '100+', label: 'Client launches' },
+                    { value: '6 yrs', label: 'Delivery experience' },
                   ].map((s) => (
                     <div key={s.label} className={softCard + ' p-5'}>
                       <div className="text-2xl font-semibold text-white">{s.value}</div>
@@ -395,21 +395,7 @@ export default function Landing({ initialSectionId }) {
             />
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {testimonials.map((t) => (
-                <div key={t.name} className={card}>
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={t.image}
-                      alt={`${t.name} headshot`}
-                      className="h-12 w-12 rounded-2xl border border-white/10 bg-white/5 object-cover"
-                      loading="lazy"
-                    />
-                    <div>
-                      <div className="text-sm font-semibold text-white">{t.name}</div>
-                      <div className="text-xs text-white/55">{t.role}</div>
-                    </div>
-                  </div>
-                  <p className="mt-4 text-sm leading-relaxed text-white/70">“{t.quote}”</p>
-                </div>
+                <TestimonialCard key={t.name} name={t.name} role={t.role} quote={t.quote} image={t.image} />
               ))}
             </div>
           </Container>
