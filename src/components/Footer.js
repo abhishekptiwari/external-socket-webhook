@@ -11,6 +11,7 @@ const socialLinks = [
 
 const pageLinks = [
   { label: 'About', id: 'about' },
+  { label: 'Team', id: 'team' },
   { label: 'Services', id: 'services' },
   { label: 'Projects', id: 'projects' },
   { label: 'FAQ', id: 'faq' },

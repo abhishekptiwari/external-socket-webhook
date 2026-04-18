@@ -6,6 +6,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -13,6 +14,20 @@ body {
   font-family: 'Manrope', system-ui, -apple-system, sans-serif;
   background: #07070a;
   color: rgba(255, 255, 255, 0.92);
+  text-rendering: optimizeLegibility;
+}
+
+/* iOS notch/home-indicator friendliness */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Reduce tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 h1,

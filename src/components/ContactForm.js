@@ -98,7 +98,7 @@ export default function ContactForm({ onSuccess }) {
           value={projectScope}
           onChange={(e) => setProjectScope(e.target.value)}
           required
-          className="min-h-[130px] resize-y rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/35 focus:outline-none focus:ring-2 focus:ring-white/20"
+          className="min-h-[130px] resize-none rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/35 focus:outline-none focus:ring-2 focus:ring-white/20"
         />
       </label>
 

@@ -6,10 +6,23 @@ import { Button } from '../components/Button';
 import { SectionHeading } from '../components/SectionHeading';
 import { Modal } from '../components/Modal';
 import { Toast } from '../components/Toast';
-import ContactForm from '../components/ContactForm';
 import StartProjectForm from '../components/StartProjectForm';
 import TestimonialCard from '../components/TestimonialCard';
-import { ArrowRight, Calendar, ExternalLink, Rocket, Sparkles } from 'lucide-react';
+import TeamMemberCard from '../components/TeamMemberCard';
+import {
+  ArrowRight,
+  Calendar,
+  Check,
+  ExternalLink,
+  Globe,
+  Layers,
+  Mail,
+  Phone,
+  Rocket,
+  ShieldCheck,
+  Smartphone,
+  Sparkles,
+} from 'lucide-react';
 
 const card =
   'rounded-3xl border border-white/10 bg-black/30 p-6 shadow-[0_30px_90px_-60px_rgba(0,0,0,.9)] backdrop-blur-xl';
@@ -20,23 +33,24 @@ const softCard =
 const services = [
   {
     title: 'Custom Website Development',
-    description: 'Fast, responsive, and SEO-friendly websites designed to convert visitors into customers.',
+    description: 'Fast, responsive, and SEO-friendly websites built to convert visitors into customers.',
+    icon: <Globe className="size-5 text-cyan-200" />,
+    tag: 'Delivery',
+    bullets: ['Performance-first', 'SEO & accessibility', 'Conversion UX'],
   },
   {
     title: 'Mobile App Development',
-    description: 'Powerful iOS and Android apps with seamless user experiences and scalable architecture.',
-  },
-  {
-    title: 'UI/UX Design',
-    description: 'User-focused design that enhances engagement, usability, and brand identity.',
+    description: 'Powerful iOS and Android apps with clean UX and scalable architecture.',
+    icon: <Smartphone className="size-5 text-indigo-200" />,
+    tag: 'Delivery',
+    bullets: ['Flutter & native-ready', 'Offline-capable', 'Release support'],
   },
   {
     title: 'Web Applications',
-    description: 'Custom dashboards, SaaS platforms, and business tools tailored to your operations.',
-  },
-  {
-    title: 'Maintenance & Support',
-    description: 'Ongoing updates, performance optimization, and support to keep your product running smoothly.',
+    description: 'Custom dashboards, SaaS platforms, and internal tools tailored to your operations.',
+    icon: <Layers className="size-5 text-fuchsia-200" />,
+    tag: 'Delivery',
+    bullets: ['Role-based access', 'Audit-ready', 'Integrations'],
   },
 ];
 
@@ -63,44 +77,91 @@ const projects = [
   },
 ];
 
+const processSteps = [
+  {
+    number: '01',
+    title: 'Discover',
+    description: 'We understand your business, goals, and target users.',
+  },
+  {
+    number: '02',
+    title: 'Design',
+    description: 'We create intuitive and visually appealing user experiences.',
+  },
+  {
+    number: '03',
+    title: 'Develop',
+    description: 'Our team builds scalable, high-performance solutions.',
+  },
+  {
+    number: '04',
+    title: 'Launch',
+    description: 'We deploy your product with full testing and quality assurance.',
+  },
+  {
+    number: '05',
+    title: 'Support',
+    description: 'We stay with you post-launch to ensure long-term success.',
+  },
+];
+
 const testimonials = [
+  {
+    name: 'Rohan Kapoor',
+    role: 'Business Manager',
+    quote:
+      'They delivered exactly what we needed — fast, professional, and reliable. The final build feels premium and performs great.',
+  },
+  {
+    name: 'Meera Iyer',
+    role: 'Product Lead',
+    quote:
+      'Clear communication, strong UX thinking, and a smooth delivery process. It felt like working with an in-house team.',
+  },
+  {
+    name: 'Daniel Wu',
+    role: 'Operations Manager',
+    quote:
+      'The team moved quickly, kept us updated, and shipped a scalable solution. Post-launch support was excellent.',
+  },
+  {
+    name: 'Priya Nair',
+    role: 'Marketing Lead',
+    quote:
+      'Our website conversion improved after the launch. The team’s design and performance focus made a real difference.',
+  },
+];
+
+const coreTeam = [
   {
     name: 'Gaurang Sarvaiya',
     role: 'Founder & MD',
-    quote:
-      'Gausa Technology was incredibly responsive and clear throughout the project. Our new website looks premium and loads fast.',
     image: '/testimonials/gaurang-sarvaiya.jpeg',
+    bio: 'Leads strategy, partnerships, and delivery standards across web and app engagements.',
   },
   {
     name: 'Abhishek Tiwari',
     role: 'Operations Lead, CTO',
-    quote:
-      'They understood our requirements quickly, suggested better solutions, and delivered on time. Communication was smooth from start to finish.',
     image: '/testimonials/abhishek-tiwari.jpeg',
-  },
-  {
-    name: 'Kirti Singh',
-    role: 'Product Manager',
-    quote:
-      'The UI/UX improvements made a big difference for our users. The team handled everything professionally and with great attention to detail.',
+    bio: 'Owns engineering execution, architecture decisions, and reliable project delivery end-to-end.',
   },
 ];
 
 const posts = [
   {
-    title: 'How external client teams stay agile',
-    date: 'Mar 12, 2024',
-    description: 'Tips for keeping delivery velocity high while managing stakeholders.',
+    tag: 'MVP',
+    title: 'How to validate an MVP without wasting dev cycles',
+    description: 'Practical guidance based on real delivery projects.',
   },
   {
-    title: 'Design systems that scale with clients',
-    date: 'Feb 05, 2024',
-    description: 'How we build reusable UI libraries for multi-project teams.',
+    tag: 'Design',
+    title: 'Design systems for startups: what to standardize first',
+    description: 'Practical guidance based on real delivery projects.',
   },
   {
-    title: 'Launching MVPs in 6 weeks',
-    date: 'Jan 22, 2024',
-    description: 'Our blueprint for rapid discovery and lean product delivery.',
+    tag: 'Performance',
+    title: 'Performance budgets: a simple checklist for faster sites',
+    description: 'Practical guidance based on real delivery projects.',
   },
 ];
 
@@ -144,7 +205,7 @@ export default function Landing({ initialSectionId }) {
   }, [sectionToScroll]);
 
   return (
-    <div className="min-h-dvh bg-[#07070a] text-white">
+    <div className="min-h-dvh overflow-x-hidden bg-[#07070a] pb-[env(safe-area-inset-bottom)] text-white">
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(1200px_800px_at_10%_10%,rgba(56,189,248,0.22),transparent_60%),radial-gradient(900px_700px_at_92%_22%,rgba(96,165,250,0.18),transparent_55%),radial-gradient(900px_700px_at_40%_95%,rgba(129,140,248,0.12),transparent_55%)]" />
         <div className="absolute inset-0 grid-dots opacity-35" />
@@ -340,18 +401,88 @@ export default function Landing({ initialSectionId }) {
           </Container>
         </section>
 
+        <section id="team" className="scroll-mt-28 py-20 sm:py-24">
+          <Container>
+            <SectionHeading
+              eyebrow="TEAM"
+              title="Core team behind the delivery"
+              description="A team that focused on quality, communication, and outcomes."
+            />
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              {coreTeam.map((m) => (
+                <TeamMemberCard
+                  key={m.name}
+                  name={m.name}
+                  role={m.role}
+                  image={m.image}
+                  bio={m.bio}
+                />
+              ))}
+            </div>
+          </Container>
+        </section>
+
         <section id="services" className="scroll-mt-28 py-20 sm:py-24">
           <Container>
             <SectionHeading
-              eyebrow="SERVICES"
-              title="What We Do"
-              description="Custom-built digital solutions designed for speed, quality, and long-term growth."
+              eyebrow="What we do"
+              title="A full-service partner for custom builds"
+              description="From websites to apps, we deliver tailored digital solutions that drive real business outcomes."
             />
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-10 grid gap-4 md:grid-cols-3">
               {services.map((s) => (
                 <div key={s.title} className={card}>
-                  <div className="text-base font-semibold text-white">{s.title}</div>
-                  <p className="mt-2 text-sm leading-relaxed text-white/65">{s.description}</p>
+                  <div className="flex items-center justify-between">
+                    <div className="grid size-12 place-items-center rounded-2xl bg-white/10 ring-1 ring-white/10">
+                      {s.icon}
+                    </div>
+                    <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                      {s.tag}
+                    </div>
+                  </div>
+
+                  <div className="mt-4 text-lg font-semibold tracking-tight text-white">{s.title}</div>
+                  <div className="mt-2 text-sm leading-relaxed text-white/70">{s.description}</div>
+
+                  <div className="mt-5 grid gap-2">
+                    {s.bullets.map((b) => (
+                      <div key={b} className="flex items-center gap-2 text-sm text-white/70">
+                        <span className="grid size-5 place-items-center rounded-md bg-white/10 ring-1 ring-white/10">
+                          <Check className="size-3.5 text-emerald-200" />
+                        </span>
+                        {b}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        <section id="process" className="scroll-mt-28 py-20 sm:py-24">
+          <Container>
+            <SectionHeading
+              eyebrow="Process"
+              title="How we deliver results"
+              description="A simple, proven workflow to take your idea from concept to launch — and beyond."
+            />
+            <div className="mt-10 grid gap-4 md:grid-cols-3 xl:grid-cols-5">
+              {processSteps.map((step) => (
+                <div
+                  key={step.number}
+                  className="rounded-3xl border border-white/10 bg-white/5 shadow-[0_30px_90px_-60px_rgba(0,0,0,.9)] backdrop-blur"
+                >
+                  <div className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="text-xs font-semibold tracking-[0.18em] text-white/60">{step.number}</div>
+                      <div className="grid size-9 place-items-center rounded-xl bg-white/10 ring-1 ring-white/10">
+                        <ArrowRight className="size-4 text-white/70" />
+                      </div>
+                    </div>
+                    <div className="mt-4 text-base font-semibold text-white">{step.title}</div>
+                    <div className="mt-2 text-sm leading-relaxed text-white/70">{step.description}</div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -393,7 +524,7 @@ export default function Landing({ initialSectionId }) {
               title="Partners who trust Gausa Technology"
               description="External teams, internal-level outcomes."
             />
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {testimonials.map((t) => (
                 <TestimonialCard key={t.name} name={t.name} role={t.role} quote={t.quote} image={t.image} />
               ))}
@@ -403,23 +534,43 @@ export default function Landing({ initialSectionId }) {
 
         <section id="blog" className="scroll-mt-28 py-20 sm:py-24">
           <Container>
-            <SectionHeading
-              eyebrow="BLOG"
-              title="Insights for client-focused product teams"
-              description="Playbooks, stories, and delivery lessons from external client work."
-            />
-            <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <SectionHeading
+                eyebrow="BLOG"
+                title="Notes on delivery, UX, and building product"
+                description="Short reads to help you ship better: performance, conversion, and scalable systems."
+              />
+              <Button type="button" variant="secondary">
+                Read more <ExternalLink className="size-4" />
+              </Button>
+            </div>
+
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {posts.map((p) => (
-                <div key={p.title} className={card}>
-                  <div className="text-xs font-semibold tracking-[0.2em] text-sky-200/90">{p.date}</div>
-                  <div className="mt-3 text-base font-semibold text-white">{p.title}</div>
-                  <p className="mt-2 text-sm leading-relaxed text-white/65">{p.description}</p>
-                  <button
-                    type="button"
-                    className="mt-4 text-sm font-semibold text-white/80 hover:text-white"
-                  >
-                    Read more →
-                  </button>
+                <div
+                  key={p.title}
+                  className="rounded-3xl border border-white/10 bg-white/5 shadow-[0_30px_90px_-60px_rgba(0,0,0,.9)] backdrop-blur"
+                >
+                  <div className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                        {p.tag}
+                      </div>
+                      <div className="grid size-9 place-items-center rounded-xl bg-white/10 ring-1 ring-white/10">
+                        <ArrowRight className="size-4 text-white/70" />
+                      </div>
+                    </div>
+
+                    <div className="mt-4 text-base font-semibold text-white">{p.title}</div>
+                    <div className="mt-2 text-sm leading-relaxed text-white/70">{p.description}</div>
+
+                    <button
+                      type="button"
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-white hover:underline"
+                    >
+                      Open article <ExternalLink className="size-4" />
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -430,14 +581,19 @@ export default function Landing({ initialSectionId }) {
           <Container>
             <SectionHeading
               eyebrow="FAQ"
-              title="Answers before we partner"
-              description="Everything you need to know before we start."
+              title="Answers before you start"
+              description="A few common questions about how we work, timelines, and what you can expect."
             />
             <div className="mt-10 grid gap-4 lg:grid-cols-2">
               {faqs.map((f) => (
-                <div key={f.q} className={card}>
-                  <div className="text-base font-semibold text-white">{f.q}</div>
-                  <p className="mt-2 text-sm leading-relaxed text-white/65">{f.a}</p>
+                <div
+                  key={f.q}
+                  className="rounded-3xl border border-white/10 bg-white/5 shadow-[0_30px_90px_-60px_rgba(0,0,0,.9)] backdrop-blur"
+                >
+                  <div className="p-6">
+                    <div className="text-base font-semibold text-white">{f.q}</div>
+                    <div className="mt-2 text-sm leading-relaxed text-white/70">{f.a}</div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -446,41 +602,67 @@ export default function Landing({ initialSectionId }) {
 
         <section id="contact" className="scroll-mt-28 pb-20 sm:pb-24">
           <Container>
-            <SectionHeading
-              eyebrow="CONTACT"
-              title="Let’s build your next project"
-              description="Tell us about your scope, timeline, and delivery goals."
-            />
-            <div className="mt-10 grid gap-4 lg:grid-cols-2">
-              <div className={card}>
-                <div className="text-base font-semibold text-white">Project Intake</div>
-                <div className="mt-1 text-sm text-white/60">Share details and we’ll respond within 24 hours.</div>
-                <div className="mt-6">
-                  <ContactForm
-                    onSuccess={() => {
-                      setToast({ show: true, message: 'Thanks! We’ll respond within 24 hours.' });
-                    }}
-                  />
-                </div>
-              </div>
+            <div className="rounded-3xl border border-white/10 bg-white/5 shadow-[0_30px_90px_-60px_rgba(0,0,0,.9)] backdrop-blur">
+              <div className="grid gap-8 p-8 lg:grid-cols-12 lg:p-10">
+                <div className="lg:col-span-7">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
+                    <Rocket className="size-3.5 text-fuchsia-200" />
+                    Ready to build?
+                  </div>
+                  <div className="mt-4 text-balance text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                    Ready to build your project?
+                  </div>
+                  <div className="mt-3 text-sm leading-relaxed text-white/70 sm:text-base">
+                    Let’s turn your idea into a powerful digital product. Whether you need a website, mobile app, or
+                    custom system — we’re here to help.
+                  </div>
 
-              <div className={card}>
-                <div className="text-base font-semibold text-white">Prefer to talk?</div>
-                <div className="mt-1 text-sm text-white/60">Call us directly and we’ll help you scope the right solution.</div>
-                <div className="mt-6 grid gap-3 text-sm text-white/75">
-                  <div>🇬🇧 +447776537494</div>
-                  <div>🇮🇳 +919833412635</div>
-                  <div>
-                    Email:{' '}
-                    <a href="mailto:business@gausatechnology.com" className="text-white hover:underline">
-                      business@gausatechnology.com
-                    </a>
+                  <div className="mt-7 flex flex-wrap gap-3">
+                    <Button variant="primary" onClick={startProject}>
+                      Start your project <ArrowRight className="size-4" />
+                    </Button>
+                    <Button variant="secondary" onClick={startProject}>
+                      <Calendar className="size-4" /> Schedule a call
+                    </Button>
                   </div>
                 </div>
-                <div className="mt-8">
-                  <Button variant="secondary" onClick={startProject}>
-                    Schedule a Call
-                  </Button>
+
+                <div className="lg:col-span-5">
+                  <div className="grid gap-3">
+                    <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                      <div className="grid size-9 place-items-center rounded-xl bg-white/10 ring-1 ring-white/10 text-white/80">
+                        <Mail className="size-4" />
+                      </div>
+                      <div>
+                        <div className="text-xs text-white/60">Email</div>
+                        <div className="text-sm text-white/80">
+                          <a href="mailto:business@gausatechnology.com" className="hover:underline">
+                            business@gausatechnology.com
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                      <div className="grid size-9 place-items-center rounded-xl bg-white/10 ring-1 ring-white/10 text-white/80">
+                        <Phone className="size-4" />
+                      </div>
+                      <div>
+                        <div className="text-xs text-white/60">Phone</div>
+                        <div className="text-sm text-white/80">🇬🇧 +447776537494 • 🇮🇳 +919833412635</div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                      <div className="grid size-9 place-items-center rounded-xl bg-white/10 ring-1 ring-white/10 text-white/80">
+                        <ShieldCheck className="size-4" />
+                      </div>
+                      <div>
+                        <div className="text-xs text-white/60">Response time</div>
+                        <div className="text-sm text-white/80">Within 24 hours</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

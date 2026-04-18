@@ -111,7 +111,7 @@ export default function StartProjectForm({ onCancel, onSent }) {
         <textarea
           required
           rows={5}
-          className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:outline-none focus:ring-2 focus:ring-white/20"
+          className="resize-none rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:outline-none focus:ring-2 focus:ring-white/20"
           placeholder="Timeline, goals, links, requirements..."
           value={details}
           onChange={(e) => setDetails(e.target.value)}
@@ -140,4 +140,3 @@ export default function StartProjectForm({ onCancel, onSent }) {
     </form>
   );
 }
-

@@ -8,6 +8,7 @@ import logo from '../assets/gausa-logo.jpg';
 const nav = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
+  { id: 'team', label: 'Team' },
   { id: 'services', label: 'Services' },
   { id: 'projects', label: 'Projects' },
   { id: 'testimonials', label: 'Testimonials' },
