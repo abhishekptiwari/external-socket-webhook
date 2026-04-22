@@ -137,14 +137,14 @@ const coreTeam = [
     name: 'Gaurang Sarvaiya',
     role: 'Founder & MD',
     image: '/testimonials/gaurang-sarvaiya.jpeg',
-    bio: 'Leads strategy, partnerships, and delivery standards across web and app engagements.',
+    bio: 'As Founder & MD, defines the vision for how Gausa Technology builds: outcome-first, craft-led, and dependable. Leads strategy and partnerships, aligning stakeholders on scope, timelines, and success metrics early. Establishes delivery standards across web and app engagements—prioritizing clear communication, quality reviews, and predictable execution from kickoff to launch and beyond.',
   },
-  {
-    name: 'Abhishek Tiwari',
-    role: 'Operations Lead, CTO',
-    image: '/testimonials/abhishek-tiwari.jpeg',
-    bio: 'Owns engineering execution, architecture decisions, and reliable project delivery end-to-end.',
-  },
+  // {
+  //   name: 'Abhishek Tiwari',
+  //   role: 'Operations Lead, CTO',
+  //   image: '/testimonials/abhishek-tiwari.jpeg',
+  //   bio: 'Owns engineering execution, architecture decisions, and reliable project delivery end-to-end.',
+  // },
 ];
 
 const posts = [
@@ -403,12 +403,20 @@ export default function Landing({ initialSectionId }) {
 
         <section id="team" className="scroll-mt-28 py-14 sm:py-24">
           <Container>
+            {/*
+              When the team list has a single member, keep copy singular
+              (we render the grid as 1 column above as well).
+            */}
             <SectionHeading
               eyebrow="TEAM"
-              title="Core team behind the delivery"
-              description="A team that focused on quality, communication, and outcomes."
+              title={coreTeam.length > 1 ? 'Core team behind the delivery' : 'Leadership behind the delivery'}
+              description={
+                coreTeam.length > 1
+                  ? 'A team that focused on quality, communication, and outcomes.'
+                  : 'Founder-led delivery focused on quality, communication, and outcomes.'
+              }
             />
-            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            <div className={`mt-10 grid gap-4 ${coreTeam.length > 1 ? 'sm:grid-cols-2' : ''}`}>
               {coreTeam.map((m) => (
                 <TeamMemberCard
                   key={m.name}
